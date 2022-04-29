@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors, SHOOT! (Facile)</title>
+
+    <style>
+
+    #container{
+        width: 1400px;
+        height: 900px;
+        background-image: url(Background_rpc.jpg);
+        background-size: cover;   
+    }
+
+    #music{background-color: gray;
+        background-image:url(Volume_Logo.PNG);
+        background-size: contain;
+        height: 70px;
+        width: 125px;
+        margin: auto;
+        margin-top: 25px;
+        margin-left: 40px;
+        border: 3px;
+        border-style: solid;
+        border-color: black;
+	    opacity: 0.9;
+    }
+
+    #music:hover {
+        background-color: white;
+        cursor: pointer;
+    }
+
+    #music_Stop{background-color: gray;
+        background-size: contain;
+        text-align: center;
+        height: 60px;
+        width: 125px;
+        margin: auto;
+        margin-left: 40px;
+        border: 3px;
+        border-style: solid;
+        border-color: black;
+        font-family: Game;
+	    opacity: 0.9;
+    }
+
+    #music_Stop:hover {
+        background-color: white;
+        cursor: pointer;
+    }
+
+    #choixJoueur{
+        width: 400px;
+        height: 500px;
+        margin-top: 220px;
+        margin-left: 100px;
+        background-color: blue;
+        opacity: 0.8;
+        position: absolute;
+        text-align: center;
+        font-family: Game;
+        border: 5px;
+        border-color: black;
+        border-style: solid;
+    }
+
+    #JoueurRoche{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 120px;
+        left: 30px;
+        border: 3px;
+        border-color: black;
+        border-style: solid;
+        background-image: url(Rockplayer.png);
+        background-size: cover;
+        background-color: whitesmoke;
+    }
+
+    #JoueurRoche:hover{
+        cursor: pointer;
+
+    }
+    
+    #JoueurPapier{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 120px;
+        left: 210px;
+        border: 3px;
+        border-color: black;
+        border-style: solid;
+        background-image: url(Paperplayer.png);
+        background-size: cover;
+        background-color: whitesmoke;
+    }
+
+    #JoueurPapier:hover{
+        cursor: pointer;
+    }
+
+    #JoueurCiseaux{
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 310px;
+        left: 120px;
+        border: 3px;
+        border-color: black;
+        border-style: solid;
+        background-image: url(Scissorsplayer.png);
+        background-size: cover;
+        background-color: whitesmoke;
+    }
+
+    #JoueurCiseaux:hover{
+        cursor: pointer;
+    }
+
+    #ChoixOrdi{
+        width: 400px;
+        height: 500px;
+        margin-top: 220px;
+        margin-left: 900px;
+        background-color: red;
+        opacity: 0.8;
+        position: absolute;
+        font-family: Game;
+        text-align: center;
+        border: 5px;
+        border-color: black;
+        border-style: solid;
+    }
+
+    #OrdiCiseau{
+        width: 150px;
+        height: 140px;
+        position: absolute;
+        top: 300px;
+        left: 115px;
+        border: 3px;
+        border-color: black;
+        border-style: solid;
+        background-image: url(Scissorsmeme.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+    #OrdiPapier{
+        width: 150px;
+        height: 123px;
+        position: absolute;
+        top: 130px;
+        left: 215px;
+        border: 3px;
+        border-color: black;
+        border-style: solid;
+        background-image: url(Papermeme.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #OrdiRoche{
+        width: 150px;
+        height: 123px;
+        position: absolute;
+        top: 130px;
+        left: 30px;
+        border: 3px;
+        border-color: black;
+        border-style: solid;
+        background-image: url(Rockmeme.gif);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #Battle{
+        width: 300px;
+        height: 600px;
+        margin-top: 170px;
+        margin-left: 550px;
+        background: green;
+        opacity: 0.8;
+        position: absolute;
+        font-family: Game;
+        text-align: center;
+        border: 5px;
+        border-color: black;
+        border-style: solid;       
+    }
+
+    #battlePlayer{
+        height: 150px;
+        width: 150px;
+        margin: auto;
+        background-color: whitesmoke;
+        background-size: contain;
+        opacity: 0.9;
+    }
+
+    #battle{
+        width: 150px;
+        height: 20px;
+        border: 3px;
+        border-color: black;
+        border-style: solid; 
+        background-color: red;
+        opacity: 0.9;
+        margin-left: 70px;                 
+    }
+
+    #battle:hover{
+        cursor: pointer;
+        background-color: violet;
+    }
+
+    #battleOrdi{
+        height: 99px;
+        width: 150px;
+        margin: auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+    }
+
+    #borderVie{
+        width: 200px;
+        height: 20px;
+        border: 1px;
+        border-style: solid;
+        margin: auto;
+        opacity: 0.9;
+        position: relative;
+    }
+
+    #vie{
+        width: 200px;
+        height: 20px;
+        background-color: lightblue;
+        border: 1px;
+        border-style: solid;
+        margin: auto;
+        opacity: 0.9;
+        position: relative;
+    }
+
+    @font-face {
+            font-family:Game;
+            src: url(SourceSansPro-Light.ttf);
+ }
+
+    </style>
+</head>
+<body>
+    <div id=container>
+        <div id=choixJoueur>
+            <h2><br/>Votre choix:</h3>
+            <div id=JoueurRoche onclick="Selection1()"></div>
+            <div id=JoueurPapier onclick="Selection2()"></div>
+            <div id=JoueurCiseaux onclick="Selection3()"></div>                                
+        </div>
+
+        <div id=Battle>
+            <h2><br/>Champ de bataille:</h2>
+            <h4>Vous:</h4> 
+            <div id="battlePlayer"></div><br/>                 
+            <div id=battle onclick="Bataille()">Fight!</div>
+            <h4>Le choix de l'ordinateur:</h4>
+            <div id="battleOrdi"></div>
+            <div id="life"><h4> Vous avez 200 vies.</h4></div>
+            <div id=borderVie><div id=vie></div></div>
+           
+        </div>
+        <div id=ChoixOrdi>
+            <h2><br/>Les choix possibles de l'ordinateur:</h2>
+            <div id=OrdiCiseau>
+                <h4><br/><br/><br/><br/>Ou ciseaux! </h4>
+            </div>
+            <div id=OrdiPapier>
+                <h4><br/><br/><br/><br/>Papier, </h4>
+            </div>
+            <div id=OrdiRoche>
+                <h4><br/><br/><br/><br/>Roche, </h4>
+            </div>
+        </div>
+
+        <div id="music"onclick="musica()"></div>
+                <div id="music_Stop"onclick="musica_pause()">
+                <h4>
+                Stop musique
+                </h4>
+        </div> 
+       
+    </div>
+
+    <script>
+
+         var battleOrdidiv=document.getElementById("battleOrdi")
+         var battlePlayerdiv=document.getElementById("battlePlayer")
+         var playerChoice=3
+         var rockJoueur=document.getElementById("JoueurRoche") 
+         var paperJoueur=document.getElementById("JoueurPapier")
+         var scissorsJoueur=document.getElementById("JoueurCiseaux")
+         var divLife=document.getElementById("life")                 
+         var musix=new Audio()
+         musix.src="Bckmusic.mp3"
+         var vie=200
+         var divVie=document.getElementById("vie")
+
+        function musica(){
+         musix.play()
+         musix.loop
+        }
+        
+        function musica_pause(){
+         musix.pause()
+        } 
+       
+        function Selection1(){
+            battlePlayerdiv.style.backgroundImage="url(Rockplayer.png)"
+            console.log ("roch")
+            playerChoice=0
+        }
+
+        function Selection2(){
+            battlePlayerdiv.style.backgroundImage="url(Paperplayer.png)"
+            console.log ("papier")
+            playerChoice=1
+        }
+
+        function Selection3(){
+            battlePlayerdiv.style.backgroundImage="url(Scissorsplayer.png)"
+            console.log ("ciso")
+            playerChoice=2
+        }       
+
+        function Bataille(){         
+            var picCpu=Math.round(Math.random()*2)
+            console.log(picCpu)
+            var lossVie=Math.round(Math.random()*50)
+            console.log(lossVie)
+            var winVie=Math.round(Math.random()*5)
+            console.log(winVie)
+            
+            if (playerChoice==0){
+                
+                if (picCpu==0){
+                battleOrdidiv.style.backgroundImage="url(Rockmeme.gif)"
+                divLife.innerHTML="Votre adversaire a choisi roche. Vous ne perdez pas de points de vie. Il vous reste "+vie +" vies."
+                }
+
+                if (picCpu==1){
+                battleOrdidiv.style.backgroundImage="url(Papermeme.gif)"
+                vie=vie-lossVie
+                divVie.style.width=vie+"px"
+                console.log (vie) 
+                divLife.innerHTML="Votre adversaire a choisi papier. Vous perdez "+lossVie +" points de vie. Il vous reste "+vie +" vies."
+                    
+                    if (lossVie=0){
+                    div.life.innerHtml="Votre adversaire a choisi papier. Mais, vous avez été chanceux. Vous ne perdez pas de points de vie. Il vous reste "+vie +" vies."
+                    }      
+
+                }
+
+                if (picCpu==2){
+                battleOrdidiv.style.backgroundImage="url(Scissorsmeme.gif)"
+                divLife.innerHTML="Win"
+                vie=vie+winVie
+                divVie.style.width=vie+"px"
+                console.log(vie)
+                divLife.innerHTML="Votre adversaire a choisi ciseaux. Vous gagnez "+winVie +" points de vie. Il vous reste " +vie +" vies."
+                   
+                   if (vie>=200){
+                   divLife.innerHTML="Votre adversaire a choisi ciseaux. Vous gagnez "+winVie+" points de vie. Vous ne pouvez pas dépasser 200 vies. Vous avez 200 vies."
+                   vie=200
+                   divVie.style.width=200
+                   }
+                   
+                }
+                    
+            }
+            
+            else if (playerChoice==1){
+
+                if (picCpu==0){
+                battleOrdidiv.style.backgroundImage="url(Rockmeme.gif)"
+                divLife.innerHTML="Win"
+                vie=vie+winVie
+                divVie.style.width=vie+"px"
+                console.log(vie)
+                divLife.innerHTML="Votre adversaire a choisi roche. Vous gagnez "+winVie +" points de vie. Il vous reste " +vie +" vies."
+                   
+                   if (vie>=200){
+                   divLife.innerHTML="Votre adversaire a choisi roche. Vous gagnez "+winVie+" points de vie. Vous ne pouvez pas dépasser 200 vies. Vous avez 200 vies."
+                   vie=200
+                   divVie.style.width=200
+                   }
+
+                }
+
+                if (picCpu==1){
+                battleOrdidiv.style.backgroundImage="url(Papermeme.gif)"
+                divLife.innerHTML="Votre adversaire a choisi papier. Vous ne perdez pas de points de vie. Il vous reste "+vie +" vies."
+                }
+
+                if (picCpu==2){
+                battleOrdidiv.style.backgroundImage="url(Scissorsmeme.gif)"
+                vie=vie-lossVie
+                divVie.style.width=vie+"px"
+                console.log (vie) 
+                divLife.innerHTML="Votre adversaire a choisi ciseaux. Vous perdez "+lossVie +" points de vie. Il vous reste "+vie +" vies."
+                    
+                    if (lossVie=0){
+                    div.life.innerHtml="Votre adversaire a choisi ciseaux. Mais, vous avez été chanceux. Vous ne perdez pas de points de vie. Il vous reste "+vie +" vies."      
+                    }
+
+                }
+            }  
+            
+            else if (playerChoice==2){
+
+                if (picCpu==0){
+                battleOrdidiv.style.backgroundImage="url(Rockmeme.gif)"
+                vie=vie-lossVie
+                divVie.style.width=vie+"px"
+                console.log (vie) 
+                divLife.innerHTML="Votre adversaire a choisi roche. Vous perdez "+lossVie +" points de vie. Il vous reste "+vie +" vies."
+                    
+                    if (lossVie=0){
+                    div.life.innerHtml="Votre adversaire a choisi roche. Mais, vous avez été chanceux. Vous ne perdez pas de points de vie. Il vous reste "+vie +" vies."      
+                    }
+
+                }
+
+                if (picCpu==1){
+                battleOrdidiv.style.backgroundImage="url(Papermeme.gif)"
+                divLife.innerHTML="Win"
+                vie=vie+winVie
+                divVie.style.width=vie+"px"
+                console.log(vie)
+                divLife.innerHTML="Votre adversaire a choisi papier. Vous gagnez "+winVie +" points de vie. Il vous reste " +vie +" vies."
+                   
+                   if (vie>=200){
+                   divLife.innerHTML="Votre adversaire a choisi ciseaux. Vous gagnez "+winVie+" points de vie. Vous ne pouvez pas dépasser 200 vies. Vous avez 200 vies."
+                   vie=200
+                   divVie.style.width=200
+                   }
+
+                }
+
+                if (picCpu==2){
+                battleOrdidiv.style.backgroundImage="url(Scissorsmeme.gif)"
+                 divLife.innerHTML="Votre adversaire a choisi ciseaux. Vous ne perdez pas de points de vie. Il vous reste "+vie +" vies."
+                }
+
+            }   
+                       
+            if (playerChoice==3){
+                divLife.innerHTML="Veuillez sélectionner votre choix."
+            } 
+            
+            if (vie<=0){
+                divLife.innerHTML="Vous avez perdu la partie. Il vous reste 0 vies."
+                vie=0
+                divVie.style.width=0
+            }
+                
+            setTimeout(effacer,3000)
+
+        }
+
+        function effacer(){
+            document.getElementById("battleOrdi").style.backgroundImage=""
+            document.getElementById("battlePlayer").style.backgroundImage=""
+            playerChoice=3
+            divLife.innerHTML="Vous avez "+vie+" vies."
+        }
+
+    </script>
+</body>
+</html>
