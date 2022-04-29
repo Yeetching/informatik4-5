@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors, SHOOT! (Menu)</title>
+
+    <style>
+
+        /* 0. La div générale qui contiendra les autres divs */
+        #container{
+            width: 1400px;
+            height: 900px;
+            background-image: url(Background_rpc.jpg);
+            background-size: cover;
+        }
+        
+        /*1. CSS de la div musique */
+        #music{background-color: gray;
+        background-image:url(Volume_Logo.PNG);
+        background-size: contain;
+        height: 70px;
+        width: 125px;
+        margin: auto;
+        margin-top: 25px;
+        margin-left: 40px;
+        border: 3px;
+        border-style: solid;
+        border-color: black;
+	    opacity: 0.9;
+        }
+
+        #music:hover {
+        background-color: white;
+        cursor: pointer;
+        }
+
+        #music_Stop{background-color: gray;
+        background-size: contain;
+        text-align: center;
+        height: 60px;
+        width: 125px;
+        margin: auto;
+        margin-left: 40px;
+        border: 3px;
+        border-style: solid;
+        border-color: black;
+        font-family: Game;
+	    opacity: 0.9;
+        }
+
+        #music_Stop:hover {
+        background-color: white;
+        cursor: pointer;
+        }
+
+        /* 2. Les regles du jeu */
+        #Rules{
+            width: 500px;
+            height: 490px;
+            background-color: green;
+            border: 10px;
+            border-color: black;
+            border-style: solid;
+            position: absolute;
+            margin-left: 720px;
+            margin-top: 160px;
+            font-family: Game;
+            opacity: 0.9;
+
+        }
+
+        #title{
+            text-align: center; 
+        }
+
+        /* 3. La div du choix de niveau */
+        #accueil{
+            background-color: orange;
+            width: 350px;
+            height: 600px;
+            position: absolute;
+            margin: auto;
+            margin-left: 150px;
+            margin-top: 180px;          
+            border: 10px;
+            border-color: black;
+            border-style: solid;
+            text-align: center;
+            font-family: Game;
+            opacity: 0.75;
+        }
+
+        /* 3a. Niveau facile */
+        #facile{
+            background-color: greenyellow;
+            width: 200px;
+            height: 148px;
+            position: absolute;
+            margin: auto;
+            margin-top: 35px;
+            margin-left: 70px;
+            border: 5px;
+            border-color: black;
+            border-style: solid;
+
+        }
+
+        #facile:hover{
+            cursor: pointer;
+            background-color: lightblue;
+        }
+       
+        /* 3b. Niveau difficile */
+        #difficile{
+            background-color: darkred;
+            width: 200px; 
+            height: 153px;
+            position: absolute;
+            margin: auto;
+            margin-top: 260px;
+            margin-left: 70px;
+            border: 5px;
+            border-color: black;
+            border-style: solid;
+
+        }
+
+        #difficile:hover{
+            cursor: pointer;
+            background-color: royalblue;
+        }
+
+        /* 4. Annexes */
+        @font-face {
+            font-family:Game ;
+            src: url(SourceSansPro-Light.ttf);
+ }
+
+    </style>
+</head>
+
+<body>
+    <!-- 5. Division générale qui contiendra les autres divs -->
+    <div id=container>
+
+    <!-- 6. Division des règles du jeu -->    
+        <div id=Rules>
+            <div id=title>
+                <h3>Instructions:</h3>
+            </div>
+
+            <h4>
+                1- Sélectionnez votre mode désiré entre les modes facile et difficile. Votre but est de survivre les attaques par les memes le plus de fois possible. <br/><br/>
+                2- Peu importe le mode choisi, vous aurez toujours 200 points de vie. <br/><br/>
+                3- Une fois dans le jeu, choisissez un objet entre roche, papier et ciseaux, et cliquez sur "Fight!" <br/><br/>
+                4- Si vous gagnez une partie, vous gagnez le nombre de vie équivalent à un chiffre aléatoire entre 0 et 5 points de vie. Si vous égalisez, rien ne se passe et si vous perdez, vous perdrez le nombre de vie équivalent à un chiffre aléatoire selon le mode choisi: facile = entre 0 et 50 points de vie, difficile = entre 0 et 100 points de vie. Notez que votre nombre total de vies ne peut dépasser 200. <br/><br/>
+                5- Lorsque votre nombre de vies tombe à 0, vous avez perdu la partie. On affichera votre nombre d'attaques survécu par les memes. <br/><br/>
+                6- Game on!
+            
+            </h4>
+        </div>
+
+    <!-- 7. Division du choix de niveau -->    
+        <div id=accueil><br/><br/>
+            <h2>Pour le choix du niveau:</h2>
+
+    <!-- 7a. Division facile -->
+            <div id=facile onclick="sendeasy()"><br/>
+                <h3>Vous voulez un niveau moins rageant? Cliquez ici! (Facile)</h3>
+                <a href="Facile.html"></a>
+            </div>
+
+    <!-- 7b. Division difficile -->        
+            <div id= difficile onclick="sendhard()">
+                <h3>Vous voulez un niveau qui vous fera briser votre clavier et votre ordinateur? Cliquez ici! (Difficile)</h3>
+                <a href="Difficile.html"></a>
+            </div>
+
+        </div>
+
+    <!-- 8. La div musique et la pause musique -->    
+            <div id="music"onclick="musica()"></div>
+                <div id="music_Stop"onclick="musica_pause()">
+                <h4>
+                Stop musique
+                </h4>
+            </div> 
+
+    </div>
+
+    <script>
+
+        // 9. Fonctionnement de la musique
+        var musix=new Audio()
+         musix.src="Bckmusic.mp3"
+
+        function musica(){
+         musix.play()
+        }
+        function musica_pause(){
+         musix.pause()
+        }
+        
+        // 10. Envoi de l'utilisateur au niveau facile
+        function sendeasy(){
+            window.location.href="Facile.html"
+        }
+
+        // 11. Envoi de l'utilisateur au niveau difficile
+        function sendhard(){
+            window.location.href="Difficile.html"
+        }
+
+    </script>
+
+</body>
+</html>

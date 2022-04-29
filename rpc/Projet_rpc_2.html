@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors SHOOT!</title>
+     <style>
+         #answer{
+             width:180px;
+             height:69px;
+             background-color: turquoise;
+             margin: 5px;
+             border: 1.5px solid violet;
+         }
+
+     </style>
+
+</head>
+<body>
+     <h1>Roche, Papier, Ciso</h1>
+     <input type="text" id="Joueur">
+     <input type="button" value="Play" onclick="valider()">
+     <div id=answer></div>
+     <script>
+         var divAnswer=document.getElementById("answer")      
+         function valider(){
+            var choixOrdi=Math.ceil(Math.random()*3)
+            console.log(choixOrdi)
+            var choixJoueur=document.getElementById("Joueur").value.toLowerCase()
+            console.log(choixJoueur)
+
+            if (choixJoueur=="roche"){
+                if(choixOrdi==1){
+                    divAnswer.innerHTML="Égalité, recommencez!"
+                }
+                if(choixOrdi==2){
+                    divAnswer.innerHTML="Défaite, vous avez perdu!"
+                }
+                if(choixOrdi==3){
+                    divAnswer.innerHTML="Victoire, vous avez gagné, bravo!"
+                }
+
+            }
+             else if (choixJoueur=="papier"){
+                if(choixOrdi==1){
+                    divAnswer.innerHTML="Victoire, vous avez gagné, bravo!"
+                }
+                if(choixOrdi==2){
+                    divAnswer.innerHTML="Égalité, recommencez!"
+                }
+                if(choixOrdi==3){
+                    divAnswer.innerHTML="Défaite, vous avez perdu!"
+                }
+            }
+             else if (choixJoueur=="ciseaux"){
+                if(choixOrdi==1){
+
+                    divAnswer.innerHTML="Défaite, vous avez perdu!"
+                }
+                if(choixOrdi==2){
+                    divAnswer.innerHTML="Victoire, vous avez gagné, bravo!"
+                }
+                if(choixOrdi==3){
+                    divAnswer.innerHTML="Égalité, recommencez!"
+                }
+            }
+             else{
+                 divAnswer.innerHTML="Vous devez indiquer soit roche, soit papier, soit ciseaux!"
+             }
+             setTimeout(erase, 1000)
+
+         }
+     
+     function erase(){
+         divAnswer.innerHTML=""
+         document.getElementById("Joueur").value=""
+
+
+
+     }
+
+
+     </script>
+
+</body>
+</html>
